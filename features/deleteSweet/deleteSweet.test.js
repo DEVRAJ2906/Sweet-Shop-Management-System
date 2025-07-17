@@ -1,11 +1,15 @@
+const { Sweet } = require('../shared/Sweet');
 const { SweetShop } = require('../shared/SweetShop');
 const { handleDeleteSweet } = require('./deleteSweet');
 
 test('should delete a sweet by ID', () => {
   const shop = new SweetShop();
 
-  shop.addSweet(1, 'Rasgulla', 'Syrup-Based', 20, 10);
-  shop.addSweet(2, 'Ladoo', 'Flour-Based', 15, 5);
+  const sweet1 = new Sweet(1, 'Rasgulla', 'Syrup-Based', 20, 10);
+  const sweet2 = new Sweet(2, 'Ladoo', 'Flour-Based', 15, 5);
+
+  shop.addSweet(sweet1);
+  shop.addSweet(sweet2);
 
   handleDeleteSweet(shop, 1);
 

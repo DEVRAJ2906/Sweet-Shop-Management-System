@@ -1,3 +1,4 @@
+const { Sweet } = require('../shared/Sweet');
 const { SweetShop } = require('../shared/SweetShop');
 const { handleSearchSweetByCriteria } = require('./searchSweetsByCriteria');
 
@@ -7,9 +8,9 @@ describe('Search sweets by criteria', () => {
   beforeEach(() => {
     shop = new SweetShop();
 
-    shop.addSweet(1, 'Kaju Katli', 'Nut-Based', 50, 10);
-    shop.addSweet(2, 'Rasgulla', 'Syrup-Based', 30, 20);
-    shop.addSweet(3, 'Ladoo', 'Flour-Based', 15, 50);
+    shop.addSweet(new Sweet(1, 'Kaju Katli', 'Nut-Based', 50, 10));
+    shop.addSweet(new Sweet(2, 'Rasgulla', 'Syrup-Based', 30, 20));
+    shop.addSweet(new Sweet(3, 'Ladoo', 'Flour-Based', 15, 50));
   });
 
   test('should search by name', () => {

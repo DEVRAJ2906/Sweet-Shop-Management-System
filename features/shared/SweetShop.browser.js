@@ -1,12 +1,10 @@
-const { Sweet } = require('./Sweet');
-
-class SweetShop {
+export class SweetShop {
   constructor() {
     this.sweets = [];
   }
 
   addSweet(sweet) {
-    this.sweets.push(sweet);
+    this.sweets.push(sweet); // Accepts Sweet object
   }
 
   deleteSweet(id) {
@@ -15,25 +13,14 @@ class SweetShop {
 
   purchaseSweet(id, quantity) {
     const sweet = this.sweets.find((s) => s.id === id);
-
-    if (!sweet) {
-      throw new Error("Sweet not found");
-    }
-
-    if (sweet.quantity < quantity) {
-      throw new Error("Insufficient stock");
-    }
-
+    if (!sweet) throw new Error("Sweet not found");
+    if (sweet.quantity < quantity) throw new Error("Insufficient stock");
     sweet.quantity -= quantity;
   }
 
   restockSweet(id, quantity) {
     const sweet = this.sweets.find((s) => s.id === id);
-
-    if (!sweet) {
-      throw new Error("Sweet not found");
-    }
-
+    if (!sweet) throw new Error("Sweet not found");
     sweet.quantity += quantity;
   }
 
@@ -51,9 +38,9 @@ class SweetShop {
         ? sweet.category?.toLowerCase() === criteria.category.toLowerCase()
         : true;
 
-      const matchesPrice =
-        (criteria.minPrice === undefined || sweet.price >= criteria.minPrice) &&
-        (criteria.maxPrice === undefined || sweet.price <= criteria.maxPrice);
+    const matchesPrice =
+      (criteria.minPrice === undefined || sweet.price >= criteria.minPrice) &&
+      (criteria.maxPrice === undefined || sweet.price <= criteria.maxPrice);
 
       return matchesName && matchesCategory && matchesPrice;
     });
@@ -63,5 +50,3 @@ class SweetShop {
     return this.sweets;
   }
 }
-
-module.exports = { SweetShop };

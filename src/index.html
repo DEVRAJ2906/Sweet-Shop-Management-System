@@ -7,17 +7,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <h1 class="main-title">Sweet Shop Management System</h1>
+    
     <h2>Add New Sweet</h2>
     <form id="addSweetForm">
-      <input type="number" id="sweetId" placeholder="ID" required />
+      <input type="number" id="sweetId" placeholder="ID" min="1" required />
       <input type="text" id="sweetName" placeholder="Name" required />
       <select id="sweetCategory">
-        <option value="Nut-Based">Nut-Based</option>
-        <option value="Flour-Based">Flour-Based</option>
-        <option value="Syrup-Based">Syrup-Based</option>
+        <option value="Chocolate">Chocolate</option>
+        <option value="Candy">Candy</option>
+        <option value="Pastry">Pastry</option>
       </select>
-      <input type="number" id="sweetPrice" placeholder="Price" required />
-      <input type="number" id="sweetQuantity" placeholder="Quantity" required />
+      <input type="number" id="sweetPrice" placeholder="Price" min="1" required />
+      <input type="number" id="sweetQuantity" placeholder="Quantity" min="1" required />
       <button type="submit">Add Sweet</button>
     </form>
 
@@ -26,12 +28,12 @@
       <input type="text" id="searchName" placeholder="Name" />
       <select id="searchCategory">
         <option value="">All Categories</option>
-        <option value="Nut-Based">Nut-Based</option>
-        <option value="Flour-Based">Flour-Based</option>
-        <option value="Syrup-Based">Syrup-Based</option>
+        <option value="Chocolate">Chocolate</option>
+        <option value="Candy">Candy</option>
+        <option value="Pastry">Pastry</option>
       </select>
-      <input type="number" id="minPrice" placeholder="Min Price" />
-      <input type="number" id="maxPrice" placeholder="Max Price" />
+      <input type="number" id="minPrice" placeholder="Min Price" min="1" />
+      <input type="number" id="maxPrice" placeholder="Max Price" min="1" />
       <button type="submit">Search</button>
     </form>
 
@@ -53,3 +55,4 @@
     <script src="script.js" type="module"></script>
   </body>
 </html>
+
