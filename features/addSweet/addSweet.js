@@ -1,4 +1,4 @@
-const { Sweet } = require('../shared/Sweet');
+const { Sweet } = require("../shared/Sweet");
 
 function handleAddSweet(shop, sweetData) {
   const { id, name, category, price, quantity } = sweetData;

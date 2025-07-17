@@ -8,9 +8,6 @@ const addForm = document.getElementById("addSweetForm");
 const searchForm = document.getElementById("searchForm");
 const sweetTableBody = document.querySelector("#sweetTable tbody");
 
-// --------------------
-// ADD SWEET
-// --------------------
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -52,9 +49,6 @@ addForm.addEventListener("submit", (e) => {
   addForm.reset();
 });
 
-// --------------------
-// SEARCH SWEETS
-// --------------------
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -63,7 +57,6 @@ searchForm.addEventListener("submit", (e) => {
   const minPrice = document.getElementById("minPrice").value;
   const maxPrice = document.getElementById("maxPrice").value;
 
-  // Validate price range
   if (minPrice && maxPrice && Number(maxPrice) < Number(minPrice)) {
     alert("Maximum price must be greater than or equal to minimum price.");
     return;
@@ -82,11 +75,8 @@ searchForm.addEventListener("submit", (e) => {
   searchForm.reset();
 });
 
-// --------------------
-// RENDER TABLE
-// --------------------
 function renderTable(sweets) {
-  sweetTableBody.innerHTML = ""; // Clear previous rows
+  sweetTableBody.innerHTML = "";
 
   if (sweets.length === 0) {
     const row = document.createElement("tr");
@@ -94,7 +84,6 @@ function renderTable(sweets) {
     cell.colSpan = 6;
     cell.style.textAlign = "center";
 
-    // Check if this is the initial render or after search
     if (shop.getSweets().length === 0) {
       cell.textContent = "No data available. Please add sweets.";
     } else {
@@ -125,12 +114,9 @@ function renderTable(sweets) {
     sweetTableBody.appendChild(row);
   });
 
-  attachActionHandlers(); // Re-bind after rendering
+  attachActionHandlers();
 }
 
-// --------------------
-// ACTION HANDLERS
-// --------------------
 function attachActionHandlers() {
   document.querySelectorAll(".delete").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -144,7 +130,7 @@ function attachActionHandlers() {
     btn.addEventListener("click", () => {
       const id = Number(btn.dataset.id);
       const input = prompt("Enter quantity to purchase:");
-      if (input === null) return; // Cancel clicked
+      if (input === null) return;
 
       const quantity = Number(input);
       if (isNaN(quantity) || quantity <= 0) {
@@ -165,7 +151,7 @@ function attachActionHandlers() {
     btn.addEventListener("click", () => {
       const id = Number(btn.dataset.id);
       const input = prompt("Enter quantity to restock:");
-      if (input === null) return; // Cancel clicked
+      if (input === null) return;
 
       const quantity = Number(input);
       if (isNaN(quantity) || quantity <= 0) {
@@ -184,18 +170,5 @@ function attachActionHandlers() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  // // Clear all search input fields explicitly
-  // document.getElementById("searchName").value = "";
-  // document.getElementById("searchCategory").value = "";
-  // document.getElementById("minPrice").value = "";
-  // document.getElementById("maxPrice").value = "";
-
-  // // Also clear the add form (optional)
-  // document.getElementById("sweetId").value = "";
-  // document.getElementById("sweetName").value = "";
-  // document.getElementById("sweetCategory").value = "Chocolate";
-  // document.getElementById("sweetPrice").value = "";
-  // document.getElementById("sweetQuantity").value = "";
-
   renderTable([]);
 });

@@ -1,4 +1,4 @@
-const { Sweet } = require('./Sweet');
+const { Sweet } = require("./Sweet");
 
 class SweetShop {
   constructor() {

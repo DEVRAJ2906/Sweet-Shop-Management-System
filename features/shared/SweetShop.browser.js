@@ -4,7 +4,7 @@ export class SweetShop {
   }
 
   addSweet(sweet) {
-    this.sweets.push(sweet); // Accepts Sweet object
+    this.sweets.push(sweet);
   }
 
   deleteSweet(id) {
@@ -38,9 +38,9 @@ export class SweetShop {
         ? sweet.category?.toLowerCase() === criteria.category.toLowerCase()
         : true;
 
-    const matchesPrice =
-      (criteria.minPrice === undefined || sweet.price >= criteria.minPrice) &&
-      (criteria.maxPrice === undefined || sweet.price <= criteria.maxPrice);
+      const matchesPrice =
+        (criteria.minPrice === undefined || sweet.price >= criteria.minPrice) &&
+        (criteria.maxPrice === undefined || sweet.price <= criteria.maxPrice);
 
       return matchesName && matchesCategory && matchesPrice;
     });
