@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sweet Shop Manager</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h2>Add New Sweet</h2>
+    <form id="addSweetForm">
+      <input type="number" id="sweetId" placeholder="ID" required />
+      <input type="text" id="sweetName" placeholder="Name" required />
+      <select id="sweetCategory">
+        <option value="Nut-Based">Nut-Based</option>
+        <option value="Flour-Based">Flour-Based</option>
+        <option value="Syrup-Based">Syrup-Based</option>
+      </select>
+      <input type="number" id="sweetPrice" placeholder="Price" required />
+      <input type="number" id="sweetQuantity" placeholder="Quantity" required />
+      <button type="submit">Add Sweet</button>
+    </form>
+
+    <h2>Search Sweets</h2>
+    <form id="searchForm">
+      <input type="text" id="searchName" placeholder="Name" />
+      <select id="searchCategory">
+        <option value="">All Categories</option>
+        <option value="Nut-Based">Nut-Based</option>
+        <option value="Flour-Based">Flour-Based</option>
+        <option value="Syrup-Based">Syrup-Based</option>
+      </select>
+      <input type="number" id="minPrice" placeholder="Min Price" />
+      <input type="number" id="maxPrice" placeholder="Max Price" />
+      <button type="submit">Search</button>
+    </form>
+
+    <h2>Sweet Inventory</h2>
+    <table id="sweetTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>
