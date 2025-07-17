@@ -7,6 +7,10 @@ class SweetShop {
     this.sweets.push({ id, name, category, price, quantity });
   }
 
+  deleteSweet(id) {
+    this.sweets = this.sweets.filter((sweet) => sweet.id !== id);
+  }
+
   getSweets() {
     return this.sweets;
   }
