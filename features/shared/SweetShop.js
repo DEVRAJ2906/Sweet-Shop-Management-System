@@ -35,6 +35,29 @@ class SweetShop {
     sweet.quantity += quantity;
   }
 
+  searchSweet(id) {
+    return this.sweets.find((s) => s.id === id);
+  }
+
+  searchSweetsByCriteria(criteria) {
+    return this.sweets.filter((sweet) => {
+      const matchesName = criteria.name
+        ? sweet.name.toLowerCase().includes(criteria.name.toLowerCase())
+        : true;
+
+      const matchesCategory = criteria.category
+        ? sweet.category.toLowerCase() === criteria.category.toLowerCase()
+        : true;
+
+      const matchesPrice =
+        criteria.minPrice !== undefined && criteria.maxPrice !== undefined
+          ? sweet.price >= criteria.minPrice && sweet.price <= criteria.maxPrice
+          : true;
+
+      return matchesName && matchesCategory && matchesPrice;
+    });
+  }
+
   getSweets() {
     return this.sweets;
   }
